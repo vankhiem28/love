@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
+import type { Id } from "../../../convex/_generated/dataModel";
 
 export type GalleryPhoto = {
   _id: string;
@@ -33,7 +34,7 @@ export const useGalleryService = (limit: number) => {
     };
 
     await createPhoto({
-      storageId,
+      storageId: storageId as Id<"_storage">,
       caption,
     });
   };
