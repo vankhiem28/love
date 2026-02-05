@@ -4,7 +4,7 @@ export const GIFT_PASSWORD = "tinhyeu";
 export const GIRLFRIEND_NAME = "Em";
 export const PET_NAME = "Bé yêu";
 
-export const COUNTDOWN_TARGET = new Date(Date.now() + 1 * 60 * 1000);
+export const COUNTDOWN_TARGET = new Date(Date.UTC(2026, 1, 14, 14, 0, 0));
 
 export const MUSIC_TRACKS: MusicTrack[] = [
   {
