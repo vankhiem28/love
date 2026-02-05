@@ -1,26 +1,231 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffafc;
+  --foreground: #2a1f24;
+  --pink-soft: #ffe4ec;
+  --lavender-soft: #e8e0f0;
+  --cream-soft: #fff7ef;
+  --rose-soft: #f8d7e6;
+  --ink-soft: #4b2b36;
+  --line-soft: rgba(107, 72, 92, 0.18);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a1217;
+    --foreground: #f8eef2;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), "Source Sans 3", "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), "Playfair Display", "Times New Roman", serif;
+}
+
+.font-letter {
+  font-family: var(--font-letter), "Dancing Script", "Brush Script MT", cursive;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(-28px) scale(1.08);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.55;
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(22px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes twirl {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -15vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(var(--drift, 0px), 52vh, 0) rotate(8deg);
+  }
+  100% {
+    transform: translate3d(0, 115vh, 0) rotate(-6deg);
+    opacity: 0;
+  }
+}
+
+.flip-card {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(260px) rotate(220deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes phrase-float {
+  0% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-8px);
+  }
+}
+
+.phrase-float {
+  animation: phrase-float 6s ease-in-out infinite;
+}
+
+@keyframes phrase-orbit {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(18px, -10px, 0) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+    opacity: 0.8;
+  }
+}
+
+.phrase-orbit {
+  animation: phrase-orbit 9s ease-in-out infinite;
+}
+
+@keyframes music-bar {
+  0%,
+  100% {
+    height: 6px;
+    opacity: 0.5;
+  }
+  50% {
+    height: 18px;
+    opacity: 1;
+  }
+}
+
+.music-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.music-panel::before {
+  content: "";
+  position: absolute;
+  inset: -40% 20% auto;
+  height: 160%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 228, 236, 0.6),
+    rgba(248, 215, 230, 0.05),
+    transparent 70%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.music-bar {
+  width: 4px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f5cfe0, #d88ea8);
+  animation: music-bar 1.1s ease-in-out infinite;
 }
