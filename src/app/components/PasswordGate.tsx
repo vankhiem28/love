@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import type { FormEvent } from "react";
 import { useState } from "react";
@@ -27,44 +25,29 @@ export const PasswordGate = ({ onUnlock }: PasswordGateProps) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[linear-gradient(135deg,#ffe4ec_0%,#fffafc_45%,#e8e0f0_100%)] p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[radial-gradient(circle_at_top,#ffe4ec_0%,#fffafc_55%,#e8e0f0_100%)] p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-white/45" />
-        <Image
-          src="/img/h6.jpg"
-          alt="Ảnh của em"
-          fill
-          priority
-          sizes="100vw"
-          className="object-contain opacity-60 blur-md"
-        />
-      </div>
       <motion.div
-        className="relative w-full max-w-md overflow-hidden rounded-[36px] border border-white/80 bg-white/80 p-8 text-center shadow-[0_30px_90px_rgba(95,66,80,0.18)] backdrop-blur"
+        className="relative w-full max-w-md overflow-hidden rounded-[36px] border border-white/80 bg-white/85 p-8 text-center shadow-[0_35px_90px_rgba(95,66,80,0.2)] backdrop-blur"
         initial={
           prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }
         }
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#ffe4ec]/70 blur-2xl" />
-        <div className="absolute -left-12 bottom-0 h-32 w-32 rounded-full bg-[#e8e0f0]/70 blur-2xl" />
-        <motion.span
-          className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#ffe4ec] text-2xl text-[#b8647f]"
-          animate={
-            prefersReducedMotion
-              ? undefined
-              : { scale: [1, 1.05, 1], opacity: [0.9, 1, 0.9] }
-          }
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-        >
+        <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#ffe4ec]/70 blur-2xl" />
+        <div className="absolute -left-14 bottom-0 h-36 w-36 rounded-full bg-[#e8e0f0]/70 blur-2xl" />
+        <div className="pointer-events-none absolute left-6 right-6 top-0 z-10 h-20 -translate-y-1/2 overflow-hidden">
+          <div className="absolute inset-y-0 w-[60%] bg-gradient-to-r from-transparent via-white/80 to-transparent shimmer-once" />
+        </div>
+        <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ffe4ec] text-3xl text-[#b8647f] shadow-[0_12px_30px_rgba(93,64,80,0.2)] pulse-glow">
+          <span className="absolute inset-0 rounded-full pulse-ring" />
           ❤
-        </motion.span>
-        <h1 className="font-display mt-4 text-3xl font-semibold text-[#4b2b36]">
+        </div>
+        <h1 className="font-display mt-5 text-3xl font-semibold text-[#4b2b36]">
           Món quà bí mật
         </h1>
         <p className="mt-2 text-sm text-[#7c5b69]">
@@ -81,9 +64,7 @@ export const PasswordGate = ({ onUnlock }: PasswordGateProps) => {
               setError("");
             }}
           />
-          {error ? (
-            <p className="text-sm text-[#c1667f]">{error}</p>
-          ) : null}
+          {error ? <p className="text-sm text-[#c1667f]">{error}</p> : null}
           <button
             className="w-full rounded-full bg-[#4b2b36] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white transition hover:bg-[#5d3643]"
             type="submit"

@@ -1,10 +1,8 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import {
-  FLIP_CARD_FRONT_LABELS,
-  FLIP_CARD_REWARD_LABELS,
-} from "../content";
+import { FLIP_CARD_FRONT_LABELS } from "../content";
+import { FLIP_GAME_CONFIG } from "../game-config";
 
 type FlipCard = {
   id: string;
@@ -12,21 +10,11 @@ type FlipCard = {
   rewardLabel: string;
 };
 
-const shuffle = <T,>(items: T[]) => {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-};
-
 const buildDeck = (): FlipCard[] => {
-  const rewards = shuffle(FLIP_CARD_REWARD_LABELS);
   return FLIP_CARD_FRONT_LABELS.map((frontLabel, index) => ({
     id: `${index}-${frontLabel}`,
     frontLabel,
-    rewardLabel: rewards[index] ?? rewards[0],
+    rewardLabel: FLIP_GAME_CONFIG.fixedRewardLabel,
   }));
 };
 

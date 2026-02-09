@@ -11,6 +11,6 @@ export const GAME_CONFIG = {
 } as const;
 
 export const FLIP_GAME_CONFIG = {
-  maxPlays: 2,
-  unlockPhrase: "Em yêu anh",
+  maxPlays: 1,
+  fixedRewardLabel: "2.000.000đ",
 } as const;

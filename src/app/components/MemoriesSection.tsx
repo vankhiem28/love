@@ -23,7 +23,7 @@ export const MemoriesSection = () => (
             <div className="relative -rotate-2 rounded-[28px] border-2 border-white/90 bg-white p-4 shadow-[0_25px_80px_rgba(93,64,80,0.18)]">
               <div className="relative h-165 w-full overflow-hidden rounded-[22px]">
                 <Image
-                  src="/img/h5.jpg"
+                  src="/img/h6.jpg"
                   alt="Khoảnh khắc của em"
                   fill
                   sizes="(max-width: 1024px) 90vw, 60vw"

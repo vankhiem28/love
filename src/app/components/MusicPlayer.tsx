@@ -76,49 +76,59 @@ export const MusicPlayer = ({ tracks }: MusicPlayerProps) => {
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 sm:left-auto sm:right-6 sm:w-[360px]">
-      <div className="music-panel rounded-3xl border border-white/60 bg-white/70 px-4 py-3 shadow-[0_20px_45px_rgba(93,64,80,0.2)] backdrop-blur">
+      <div className="music-panel rounded-3xl border border-white/60 bg-white/70 px-3 py-2 shadow-[0_20px_45px_rgba(93,64,80,0.2)] backdrop-blur sm:px-4 sm:py-3">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={prev}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/80 text-xs font-semibold uppercase tracking-[0.25em] text-[#7b4a5b] transition hover:-translate-y-0.5"
+            className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/80 text-xs font-semibold uppercase tracking-[0.25em] text-[#7b4a5b] transition hover:-translate-y-0.5 sm:flex"
           >
             Prev
           </button>
           <button
             type="button"
             onClick={() => void toggle()}
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f5cfe0] text-sm font-semibold uppercase tracking-[0.2em] text-[#7b4a5b] shadow-[0_10px_25px_rgba(245,207,224,0.6)] transition hover:-translate-y-0.5"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f5cfe0] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#7b4a5b] shadow-[0_10px_25px_rgba(245,207,224,0.6)] transition hover:-translate-y-0.5 sm:h-12 sm:w-12 sm:text-sm"
           >
             {isPlaying ? "Stop" : "Play"}
           </button>
           <button
             type="button"
             onClick={next}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/80 text-xs font-semibold uppercase tracking-[0.25em] text-[#7b4a5b] transition hover:-translate-y-0.5"
+            className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/80 text-xs font-semibold uppercase tracking-[0.25em] text-[#7b4a5b] transition hover:-translate-y-0.5 sm:flex"
           >
             Next
           </button>
           <div className="min-w-0 flex-1">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-[#9a6b7b]">
-              {isReady ? (isPlaying ? "Đang phát" : "Tạm dừng") : "Đang tải"}
+            <div className="hidden sm:block">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-[#9a6b7b]">
+                {isReady ? (isPlaying ? "Đang phát" : "Tạm dừng") : "Đang tải"}
+              </div>
+              <div className="truncate text-sm font-semibold text-[#5a2f3a]">
+                {currentTrack.title}
+              </div>
+              <div className="truncate text-[11px] text-[#8b5a6b]">
+                {currentTrack.artist ?? "Playlist của tụi mình"}
+              </div>
             </div>
-            <div className="truncate text-sm font-semibold text-[#5a2f3a]">
-              {currentTrack.title}
-            </div>
-            <div className="truncate text-[11px] text-[#8b5a6b]">
-              {currentTrack.artist ?? "Playlist của tụi mình"}
+            <div className="sm:hidden">
+              <div className="text-[9px] uppercase tracking-[0.25em] text-[#9a6b7b]">
+                {isReady ? (isPlaying ? "Đang phát" : "Tạm dừng") : "Đang tải"}
+              </div>
+              <div className="truncate text-xs font-semibold text-[#5a2f3a]">
+                {currentTrack.title}
+              </div>
             </div>
           </div>
           <button
             type="button"
             onClick={() => setIsListOpen((prevOpen) => !prevOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/80 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#7b4a5b] transition hover:-translate-y-0.5"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/80 text-[9px] font-semibold uppercase tracking-[0.25em] text-[#7b4a5b] transition hover:-translate-y-0.5 sm:h-10 sm:w-10 sm:text-[10px]"
           >
             List
           </button>
         </div>
-        <div className="mt-3 flex items-center justify-between">
+        <div className="mt-3 hidden items-center justify-between sm:flex">
           <div className="text-[11px] text-[#9a6b7b]">
             {currentIndex + 1}/{playlistTracks.length} bài
           </div>
@@ -140,7 +150,7 @@ export const MusicPlayer = ({ tracks }: MusicPlayerProps) => {
         </div>
       </div>
       {isListOpen ? (
-        <div className="mt-3 rounded-3xl border border-white/60 bg-white/80 p-3 shadow-[0_18px_40px_rgba(93,64,80,0.18)] backdrop-blur">
+        <div className="mt-2 max-h-[50vh] overflow-y-auto rounded-3xl border border-white/60 bg-white/80 p-3 shadow-[0_18px_40px_rgba(93,64,80,0.18)] backdrop-blur sm:mt-3 sm:max-h-none">
           <div className="mb-2 flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-[#9a6b7b]">
             <span>Danh sách</span>
             <button
@@ -183,7 +193,7 @@ export const MusicPlayer = ({ tracks }: MusicPlayerProps) => {
         </div>
       ) : null}
       {isUploadOpen ? (
-        <div className="mt-3 rounded-3xl border border-white/60 bg-white/90 p-4 shadow-[0_18px_40px_rgba(93,64,80,0.18)] backdrop-blur">
+        <div className="mt-2 max-h-[60vh] overflow-y-auto rounded-3xl border border-white/60 bg-white/90 p-4 shadow-[0_18px_40px_rgba(93,64,80,0.18)] backdrop-blur sm:mt-3 sm:max-h-none">
           <div className="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#9a6b7b]">
             Upload bài nhạc
           </div>

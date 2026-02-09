@@ -2,7 +2,7 @@ import { v } from "convex/values";
 import { mutation, MutationCtx, query, QueryCtx } from "./_generated/server";
 
 const STATE_KEY = "main";
-const MAX_PLAYS = 2;
+const MAX_PLAYS = 1;
 
 const fetchState = async (ctx: QueryCtx) => {
   const existing = await ctx.db

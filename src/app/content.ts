@@ -4,7 +4,8 @@ export const GIFT_PASSWORD = "tinhyeu";
 export const GIRLFRIEND_NAME = "Em";
 export const PET_NAME = "Bé yêu";
 
-export const COUNTDOWN_TARGET = new Date(Date.UTC(2026, 1, 14, 14, 0, 0));
+// export const COUNTDOWN_TARGET = new Date(Date.UTC(2026, 1, 14, 14, 0, 0));
+export const COUNTDOWN_TARGET = new Date(Date.now() + 1 * 5 * 1000);
 
 export const MUSIC_TRACKS: MusicTrack[] = [
   {
@@ -148,12 +149,12 @@ export const FLIP_CARD_FRONT_LABELS = [
 ];
 
 export const FLIP_CARD_REWARD_LABELS = [
-  "2.000.000đ",
-  "1.000.000đ",
-  "700.000đ",
-  "500.000đ",
-  "200.000đ",
-  "10.000đ",
+  "Quà nho nhỏ để em vui: 2.000.000đ",
+  "Tặng em chút ngọt ngào: 1.000.000đ",
+  "Một chiếc lì xì đáng yêu: 700.000đ",
+  "Bỏ heo đất tặng em: 500.000đ",
+  "Bỏ heo đất tặng em: 200.000đ",
+  "Bỏ heo đất tặng em: 10.000đ",
 ];
 
 export type HeroBackgroundImage = {
@@ -162,11 +163,11 @@ export type HeroBackgroundImage = {
 };
 
 export const HERO_BACKGROUND_IMAGES: HeroBackgroundImage[] = [
+  { src: "/img/h8.jpg", alt: "Ảnh của em" },
   { src: "/img/h1.jpg", alt: "Ảnh của em" },
   { src: "/img/h2.jpg", alt: "Ảnh của em" },
   { src: "/img/h8.jpg", alt: "Ảnh của em" },
   { src: "/img/h4.jpg", alt: "Ảnh của em" },
-  { src: "/img/h5.jpg", alt: "Ảnh của em" },
   { src: "/img/h8.jpg", alt: "Ảnh của em" },
   { src: "/img/h9.jpg", alt: "Ảnh của em" },
   { src: "/img/h10.jpg", alt: "Ảnh của em" },

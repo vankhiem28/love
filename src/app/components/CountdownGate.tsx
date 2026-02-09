@@ -51,15 +51,15 @@ export const CountdownGate = ({ onComplete }: CountdownGateProps) => {
           <div className="relative mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <div className="relative h-72 w-full sm:h-80 lg:h-96">
               <div className="absolute left-0 top-6 h-44 w-36 rotate-[-8deg] rounded-[26px] bg-white/85 p-2 shadow-[0_18px_40px_rgba(93,64,80,0.18)] backdrop-blur sm:h-52 sm:w-44 lg:h-60 lg:w-52">
-                <div className="h-full w-full rounded-[20px] bg-[url('/img/h1.jpg')] bg-cover bg-center opacity-90" />
+                <div className="h-full w-full rounded-[20px] bg-[url('/img/h2.jpg')] bg-cover bg-center opacity-90" />
                 <div className="absolute -top-3 left-6 h-6 w-16 -rotate-6 rounded-full bg-[#f6e5d9] opacity-80 shadow-[0_10px_20px_rgba(93,64,80,0.15)]" />
               </div>
               <div className="absolute right-4 top-16 h-48 w-40 rotate-6 rounded-[26px] bg-white/85 p-2 shadow-[0_18px_40px_rgba(93,64,80,0.18)] backdrop-blur sm:right-10 sm:h-56 sm:w-48 lg:h-64 lg:w-56">
                 <div className="h-full w-full rounded-[20px] bg-[url('/img/h4.jpg')] bg-cover bg-center opacity-90" />
                 <div className="absolute -bottom-3 right-8 h-6 w-16 rotate-[8deg] rounded-full bg-[#f8d7e6] opacity-70 shadow-[0_10px_20px_rgba(93,64,80,0.12)]" />
               </div>
-              <div className="absolute bottom-2 left-10 h-36 w-32 rotate-[-4deg] rounded-[26px] bg-white/85 p-2 shadow-[0_16px_36px_rgba(93,64,80,0.16)] backdrop-blur sm:bottom-4 sm:left-14 sm:h-44 sm:w-36 lg:h-52 lg:w-44">
-                <div className="h-full w-full rounded-[20px] bg-[url('/img/h8.jpg')] bg-cover bg-center opacity-90" />
+              <div className="absolute bottom-2 left-10 h-36 w-32 rotate-60 rounded-[26px] bg-white/85 p-2 shadow-[0_16px_36px_rgba(93,64,80,0.16)] backdrop-blur sm:bottom-4 sm:left-14 sm:h-44 sm:w-36 lg:h-52 lg:w-44">
+                <div className="h-full w-full rounded-[20px] bg-[url('/img/h10.jpg')] bg-cover bg-center opacity-90" />
                 <div className="absolute -left-3 -top-3 h-6 w-6 rounded-full border border-white/80 bg-[#f2c7d6] shadow-[0_8px_16px_rgba(93,64,80,0.18)]" />
               </div>
             </div>
