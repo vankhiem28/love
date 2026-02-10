@@ -28,8 +28,12 @@ const letterFont = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "A Love Letter",
-  description: "A private, romantic page crafted with gentle animations.",
+  title: "For Em",
+  description:
+    "Một không gian nhỏ dành riêng cho em, đầy bất ngờ nhẹ nhàng và những điều dễ thương.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

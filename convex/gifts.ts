@@ -4,14 +4,14 @@ import { mutation, query } from "./_generated/server";
 export const createGiftOpen = mutation({
   args: {
     rewardLabel: v.string(),
-    accountNumber: v.string(),
+    amount: v.number(),
   },
   handler: async (ctx, args) => {
     const createdAt = Date.now();
 
     const id = await ctx.db.insert("giftOpens", {
       rewardLabel: args.rewardLabel,
-      accountNumber: args.accountNumber,
+      amount: args.amount,
       createdAt,
     });
 

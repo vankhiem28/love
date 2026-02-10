@@ -12,6 +12,7 @@ import { MemoriesSection } from "./components/MemoriesSection";
 import { PasswordGate } from "./components/PasswordGate";
 import { PromiseSection } from "./components/PromiseSection";
 import { StorySection } from "./components/StorySection";
+import { WhisperChatWidget } from "./components/WhisperChatWidget";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#fffafc]">
+      <WhisperChatWidget />
       <AnimatePresence mode="wait">
         {!isCountdownDone ? (
           <CountdownGate

@@ -1,6 +1,6 @@
 import type { MusicTrack } from "./types";
 
-export const GIFT_PASSWORD = "tinhyeu";
+export const GIFT_PASSWORD = "18/8/2000";
 export const GIRLFRIEND_NAME = "Em";
 export const PET_NAME = "Bé yêu";
 
@@ -156,6 +156,7 @@ export const FLIP_CARD_REWARD_LABELS = [
   "Bỏ heo đất tặng em: 200.000đ",
   "Bỏ heo đất tặng em: 10.000đ",
 ];
+
 
 export type HeroBackgroundImage = {
   src: string;

@@ -2,20 +2,19 @@
 
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
-
-export type CreateGiftOpenInput = {
-  rewardLabel: string;
-  accountNumber: string;
-};
+import { FLIP_GAME_CONFIG } from "../game-config";
 
 export const useGiftService = () => {
   const createGiftOpen = useMutation(api.gifts.createGiftOpen);
 
-  const saveGiftOpen = async (input: CreateGiftOpenInput) => {
-    return createGiftOpen(input);
+  const saveFixedGiftOpen = async () => {
+    return createGiftOpen({
+      rewardLabel: FLIP_GAME_CONFIG.fixedRewardLabel,
+      amount: FLIP_GAME_CONFIG.fixedRewardAmount,
+    });
   };
 
   return {
-    saveGiftOpen,
+    saveFixedGiftOpen,
   };
 };

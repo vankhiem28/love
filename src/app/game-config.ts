@@ -13,4 +13,5 @@ export const GAME_CONFIG = {
 export const FLIP_GAME_CONFIG = {
   maxPlays: 1,
   fixedRewardLabel: "2.000.000đ",
+  fixedRewardAmount: 2_000_000,
 } as const;

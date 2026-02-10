@@ -12,6 +12,7 @@ import type * as gallery from "../gallery.js";
 import type * as game from "../game.js";
 import type * as gifts from "../gifts.js";
 import type * as music from "../music.js";
+import type * as whispers from "../whispers.js";
 
 import type {
   ApiFromModules,
@@ -24,6 +25,7 @@ declare const fullApi: ApiFromModules<{
   game: typeof game;
   gifts: typeof gifts;
   music: typeof music;
+  whispers: typeof whispers;
 }>;
 
 /**

@@ -4,7 +4,7 @@ import { v } from "convex/values";
 export default defineSchema({
   giftOpens: defineTable({
     rewardLabel: v.string(),
-    accountNumber: v.string(),
+    amount: v.number(),
     createdAt: v.number(),
   }).index("by_createdAt", ["createdAt"]),
   gameState: defineTable({
@@ -19,6 +19,14 @@ export default defineSchema({
     caption: v.string(),
     createdAt: v.number(),
   }).index("by_createdAt", ["createdAt"]),
+  whisperMessages: defineTable({
+    text: v.string(),
+    author: v.union(v.literal("anh"), v.literal("em")),
+    createdAt: v.number(),
+    expiresAt: v.number(),
+  })
+    .index("by_createdAt", ["createdAt"])
+    .index("by_expiresAt", ["expiresAt"]),
   musicTracks: defineTable({
     storageId: v.id("_storage"),
     title: v.string(),

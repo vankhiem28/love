@@ -20,7 +20,7 @@ export const PasswordGate = ({ onUnlock }: PasswordGateProps) => {
       return;
     }
 
-    setError("Mật khẩu chưa đúng. Thử lại nhé em.");
+    setError("Chưa đúng rồi nè, thử lại xíu nha.");
   };
 
   return (
@@ -41,17 +41,17 @@ export const PasswordGate = ({ onUnlock }: PasswordGateProps) => {
         <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#ffe4ec]/70 blur-2xl" />
         <div className="absolute -left-14 bottom-0 h-36 w-36 rounded-full bg-[#e8e0f0]/70 blur-2xl" />
         <div className="pointer-events-none absolute left-6 right-6 top-0 z-10 h-20 -translate-y-1/2 overflow-hidden">
-          <div className="absolute inset-y-0 w-[60%] bg-gradient-to-r from-transparent via-white/80 to-transparent shimmer-once" />
+          <div className="absolute inset-y-0 w-[60%] bg-linear-to-r from-transparent via-white/80 to-transparent shimmer-once" />
         </div>
         <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ffe4ec] text-3xl text-[#b8647f] shadow-[0_12px_30px_rgba(93,64,80,0.2)] pulse-glow">
           <span className="absolute inset-0 rounded-full pulse-ring" />
           ❤
         </div>
         <h1 className="font-display mt-5 text-3xl font-semibold text-[#4b2b36]">
-          Món quà bí mật
+          Bí mật nhỏ xinh
         </h1>
         <p className="mt-2 text-sm text-[#7c5b69]">
-          Nhập mật khẩu để mở cánh cửa trái tim.
+          Nhập mật khẩu để mở quà nha.
         </p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
           <input
@@ -69,11 +69,11 @@ export const PasswordGate = ({ onUnlock }: PasswordGateProps) => {
             className="w-full rounded-full bg-[#4b2b36] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white transition hover:bg-[#5d3643]"
             type="submit"
           >
-            Mở quà
+            Mở ngay
           </button>
         </form>
         <p className="mt-5 text-xs text-[#b48a98]">
-          Gợi ý: một từ nhỏ đầy yêu thương.
+          提示：小宝贝的生日。
         </p>
       </motion.div>
     </motion.div>
