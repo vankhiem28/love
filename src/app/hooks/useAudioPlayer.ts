@@ -2,18 +2,28 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+const DEFAULT_VOLUME = 0.2;
+const MIN_VOLUME = 0;
+const MAX_VOLUME = 1;
+
+const normalizeVolume = (value: number) =>
+  Math.min(MAX_VOLUME, Math.max(MIN_VOLUME, value));
+
 type UseAudioPlayerOptions = {
   src: string;
   loop?: boolean;
   autoStartOnInteraction?: boolean;
+  volume?: number;
 };
 
 export const useAudioPlayer = ({
   src,
   loop = true,
   autoStartOnInteraction = true,
+  volume = DEFAULT_VOLUME,
 }: UseAudioPlayerOptions) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const volumeRef = useRef(normalizeVolume(volume));
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReady, setIsReady] = useState(false);
 
@@ -23,6 +33,7 @@ export const useAudioPlayer = ({
     const audio = new Audio(src);
     audio.loop = loop;
     audio.preload = "auto";
+    audio.volume = volumeRef.current;
     audioRef.current = audio;
 
     const handleCanPlay = () => setIsReady(true);
@@ -40,6 +51,14 @@ export const useAudioPlayer = ({
       audio.removeEventListener("pause", handlePause);
     };
   }, [src, loop]);
+
+  useEffect(() => {
+    const normalizedVolume = normalizeVolume(volume);
+    volumeRef.current = normalizedVolume;
+    if (audioRef.current) {
+      audioRef.current.volume = normalizedVolume;
+    }
+  }, [volume]);
 
   const play = useCallback(async () => {
     const audio = audioRef.current;
