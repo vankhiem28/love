@@ -43,7 +43,7 @@ export const MusicPlayer = ({ tracks }: MusicPlayerProps) => {
     prev,
   } = usePlaylistPlayer({
     tracks: playlistTracks,
-    loop: true,
+    loop: false,
     autoStartOnInteraction: true,
   });
 

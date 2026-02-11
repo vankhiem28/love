@@ -12,7 +12,7 @@ type UsePlaylistPlayerOptions = {
 
 export const usePlaylistPlayer = ({
   tracks,
-  loop = true,
+  loop = false,
   autoStartOnInteraction = true,
 }: UsePlaylistPlayerOptions) => {
   const safeTracks = useMemo(() => tracks.filter(Boolean), [tracks]);
