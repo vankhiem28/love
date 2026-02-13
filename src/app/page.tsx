@@ -17,11 +17,26 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const [isCountdownDone, setIsCountdownDone] = useState(false);
+  const [isCountdownDone, setIsCountdownDone] = useState(
+    () => Date.now() >= COUNTDOWN_TARGET.getTime()
+  );
 
   useEffect(() => {
-    setIsCountdownDone(Date.now() >= COUNTDOWN_TARGET.getTime());
-  }, []);
+    if (isCountdownDone) {
+      return;
+    }
+
+    const syncCountdownState = () => {
+      if (Date.now() >= COUNTDOWN_TARGET.getTime()) {
+        setIsCountdownDone(true);
+      }
+    };
+
+    syncCountdownState();
+    const interval = window.setInterval(syncCountdownState, 1000);
+
+    return () => window.clearInterval(interval);
+  }, [isCountdownDone]);
 
   return (
     <div className="min-h-screen bg-[#fffafc]">

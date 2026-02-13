@@ -74,7 +74,7 @@ export const CountdownGate = ({ onComplete }: CountdownGateProps) => {
               Còn một chút nữa
             </div>
             <h1 className="mt-4 font-display text-3xl text-[#5a2f3a] sm:text-4xl">
-              Món quà sẽ mở vào <br /> 14-02-2026
+              Món quà sẽ mở vào <br /> 00:00 14-02-2026 (GMT+7)
             </h1>
             <p className="mt-3 text-sm text-[#7b4a5b]">
               Đợi thêm xíu nhé, đúng ngày thì cửa sẽ mở ra.

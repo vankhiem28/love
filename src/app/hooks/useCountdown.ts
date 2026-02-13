@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export type CountdownTime = {
   days: number;
@@ -21,36 +21,42 @@ const getRemaining = (target: Date): CountdownTime => {
   };
 };
 
+const isCountdownComplete = (time: CountdownTime): boolean =>
+  time.days === 0 &&
+  time.hours === 0 &&
+  time.minutes === 0 &&
+  time.seconds === 0;
+
 export const useCountdown = (target: Date) => {
   const [timeLeft, setTimeLeft] = useState<CountdownTime>(() =>
     getRemaining(target)
   );
 
-  const isExpired = useMemo(
-    () => target.getTime() <= Date.now(),
-    [target]
-  );
-
   useEffect(() => {
-    if (isExpired) {
+    const updateCountdown = () => {
+      const remaining = getRemaining(target);
+      setTimeLeft(remaining);
+      return remaining;
+    };
+
+    if (isCountdownComplete(updateCountdown())) {
       return;
     }
 
     const interval = window.setInterval(() => {
-      setTimeLeft(getRemaining(target));
+      const remaining = updateCountdown();
+      if (isCountdownComplete(remaining)) {
+        window.clearInterval(interval);
+      }
     }, 1000);
 
     return () => window.clearInterval(interval);
-  }, [isExpired, target]);
+  }, [target]);
 
-  const isComplete =
-    timeLeft.days === 0 &&
-    timeLeft.hours === 0 &&
-    timeLeft.minutes === 0 &&
-    timeLeft.seconds === 0;
+  const isExpired = isCountdownComplete(timeLeft);
 
   return {
     timeLeft,
-    isExpired: isExpired || isComplete,
+    isExpired,
   };
 };
