@@ -86,7 +86,7 @@ export const EndingSection = () => (
             Always
           </div>
           <div className="mt-3 font-letter text-2xl text-[#b06e84]">
-            Forever &amp; always
+            Mỗi ngày, cho anh được thương em nhiều hơn nhé
           </div>
         </div>
       </Reveal>

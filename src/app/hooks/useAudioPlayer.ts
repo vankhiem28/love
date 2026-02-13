@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const DEFAULT_VOLUME = 0.2;
+const DEFAULT_VOLUME = 0.1;
 const MIN_VOLUME = 0;
 const MAX_VOLUME = 1;
 

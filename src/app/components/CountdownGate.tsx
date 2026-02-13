@@ -94,9 +94,9 @@ export const CountdownGate = ({ onComplete }: CountdownGateProps) => {
                 </div>
               ))}
             </div>
-            <div className="mt-8 text-xs text-[#9a6b7b]">
+            {/* <div className="mt-8 text-xs text-[#9a6b7b]">
               21:00 ngày 14-02-2026 là mở ngay nha.
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

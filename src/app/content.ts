@@ -1,10 +1,10 @@
 import type { MusicTrack } from "./types";
 
-export const GIFT_PASSWORD = "18/8/2000";
+export const GIFT_PASSWORD = "18082000";
 export const GIRLFRIEND_NAME = "Em";
 export const PET_NAME = "Bé yêu";
 
-export const COUNTDOWN_TARGET = new Date(Date.UTC(2026, 1, 14, 14, 0, 0));
+export const COUNTDOWN_TARGET = new Date(2026, 1, 14, 0, 0, 0);
 // export const COUNTDOWN_TARGET = new Date(Date.now() + 1 * 5 * 1000);
 
 export const MUSIC_TRACKS: MusicTrack[] = [
@@ -12,7 +12,7 @@ export const MUSIC_TRACKS: MusicTrack[] = [
     id: "love",
     title: "Love",
     artist: "Nghệ sĩ của tụi mình",
-    src: "/music/love.mp3",
+    src: "/music/inlove.mp3",
   },
 ];
 
@@ -54,9 +54,10 @@ export const MEMORIES: Memory[] = [
 ];
 
 export const TREASURED_MOMENTS = [
-  "Ngày gặp nhau lần đầu, anh còn nhớ mình cười hơi ngại.",
-  "Lần đầu nắm tay, anh giả vờ bình tĩnh thôi chứ tim đập nhanh.",
-  "Những cuộc hẹn nhỏ, nói chuyện linh tinh mà vui ghê.",
+  "Ngày gặp nhau lần đầu, anh vẫn nhớ mình ngại mà cười.",
+  "Lần đầu nắm tay, anh bình tĩnh giả vờ thôi, tim đập nhanh lắm.",
+  "Những buổi hẹn nhỏ, nói chuyện vu vơ mà vui ghê.",
+  "Có hôm chỉ cần chạm tay một cái là cả ngày vui hơn hẳn.",
 ];
 
 export type PromiseCard = {
